@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Seamus Doherty WebApp</title>
+</head>
+<body>
+	<h1> Seamus Doherty WebApp Project Report </h1>
+	<h2> Buy and Sell System </h2>
+	Seamus Doherty ECE 4 - 14430468
+	<br/><br/>
+	The project assigned to me was a buy and sell syatem from which registered users could 
+	advertise, view and place bids on items.
+	<br/><br/>
+	Test Login Credentials: Username - JSmith    Password - password
+	<br/><br/>
+	The SQL used to create the tables <br/><br/>
+	<h3>For the user database:</h3>   CREATE TABLE SDOHERTYWEBAPP <br/>
+							        (FULLNAME VARCHAR(80) NOT NULL,<br/>
+									 USERNAME VARCHAR(30) NOT NULL,<br/>
+									 PASSWORD VARCHAR(40) NOT NULL,<br/>
+							         EMAIL VARCHAR(80) NOT NULL,<br/>
+							         PHONE VARCHAR(25),<br/>
+							         PRIMARY KEY (USERNAME))<br/><br/>
+							         
+	<h3>For the adverts:</h3>   CREATE TABLE SDOHERTYADVERTISEDATA <br/>
+						        (ID INTEGER,<br/>
+								 TITLE VARCHAR(80) NOT NULL,<br/>
+								 CATEGORY VARCHAR(30) NOT NULL,<br/>
+								 DESCRIPTION VARCHAR(2000) NOT NULL,<br/>
+						         BID INTEGER,<br/>
+						         USERNAME VARCHAR(30) NOT NULL,<br/>
+								 BIDDER VARCHAR(30),<br/>
+							 	 PRIMARY KEY (ID),<br/>
+							   	 CONSTRAINT CONSTSDADVERT<br/>
+						    	 FOREIGN KEY (USERNAME)<br/>
+						     	 REFERENCES SDOHERTYWEBAPP<br/>
+						     	 ON DELETE SET NULL)<br/>   						        
+   
+	<br/><h3>The Web Application Design</h3> 
+	The index/welcoming page of my application is a login page in which users must first
+	login before accessing other features of the application
+	<br/>A servlet checks if the entered user credentials match any records in the SQL database.
+	If there is a match then the user is logged in and they can continue to the home page of the application.
+	A HTTP session is created and assigned to the logged in user to allow them to access restricted
+	parts of the application.
+	<br/><br/> If incorrect credentials are entered the user is redirected to the login page and 
+	informed with an error message, displayed above the login. There is a link in the login page to access 
+	a registration page from which a user can sign up. The registration page submits the entered information 
+	to a servlet which in turn inserts a new row in the user database for that user. The user is then free 
+	to login.
+	
+
+	<br/><br/>The home page consists of a list of adverts currently in the database along with a 
+	number of filtering options. The user can search for items with a keyword or by category. 
+	<br/> There is a text field beside each item that allows users to place bids on items. 
+	If a user places a bid on an item the item in the database is updated with that bid and the name of 
+	the user that placed the bid. In order to update the correct item a Java Bean is created for the 
+	item which contains all of its attributes. Using this Java Bean the servlet can distinguish the 
+	items and access the required information.
+	<br/> There is a delete option beside each item that allows the item to be removed from the site.
+	Only the user that advertised the item may delete it, all other users are presented with an 
+	invalid permissions warning. This warning is possible with JSPs. The servlet sends any error messages 
+	to the JSP and it is displayed on screen. These event alerts are present throughout the application 
+	and ensure the user is well informed of the events. 
+	<br/> There is a link to an advertisement submission page in which users can advertise items
+	under certain categories.
+	
+	<br/><br/><br/> The application makes use of a HTTP session to keep track of logged in users. If
+	a user tries to access a page and does not have an active session then they are redirected 
+	to the homepage where they are forced to login.
+	<br/> The login page displays warnings if an invalid username or password is entered A warning 
+	will also appear on the login page if the user attempts to access a restricted section of the 
+	application. There are warning messages which appear if an unauthorised user attempts to delete
+	an item.
+	<br/><br/> Form Validation is used to make sure all required fields of all of the forms are filled
+	in. This prevents incomplete forms being sent to the server and invalid SQL statements being
+	processed.
+	
+	<br/><br/><h3>JSPs/HTML files and their associated servlets:</h3>
+	index.jsp -> LoginServlet.java
+	<br/>register.html -> RegServlet.java
+	<br/>Home.jsp -> Home.java, Delete.java, PaceBid.java
+	<br/>item.html -> AdvertServlet.java
+	
+	
+</body>
+</html>

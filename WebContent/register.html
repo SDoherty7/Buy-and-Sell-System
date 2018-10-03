@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Page</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+<div id="container">
+<div id="header">
+<h1> Register a new account </h1>
+</div>
+
+<form method="post" action="/SDwebapp/RegServlet" onsubmit="return formValid()" name="registrationform">
+<br/>Full Name: <input type="text" name="fullname"/>
+<br/>Username: <input type="text" name="username"/>
+<br/>Password: <input type="password"  name="password"/>
+<br/>Email: <input type="text"  name="email"/>
+<br/>Phone Number (optional): <input type="text"  name="phonenumber"/>
+<br/>
+<input type="submit" value="Sign Up"/>
+</form>
+</div>
+<script type="text/javascript">
+  function formValid() {
+	   var field1 = document.forms["registrationform"]["fullname"].value;
+	   var field2 = document.forms["registrationform"]["username"].value;
+	   var field3 = document.forms["registrationform"]["password"].value;
+	   var field4 = document.forms["registrationform"]["email"].value;
+	    if (field1 == "") {
+	        alert("Please enter your full name");
+	        return false;
+	    }
+	    else if (field2 == "") {
+	        alert("Please enter a username");
+	        return false;
+	    }
+	    else if (field3 == "") {
+	        alert("Please enter apassword");
+	        return false;
+	    }
+	    else if (field4 == "") {
+	        alert("Please enter an email address");
+	        return false;
+	    }
+  }
+</script>
+</body>
+</html>

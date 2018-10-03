@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Advertise Item</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+<div id="container">
+<div id="header">
+<h2> Please Submit the Item Details </h2>
+ </div>
+<form method="post" action="/SDwebapp/AdvertServlet" onsubmit="return formValid()" name="itemform">
+<br/>Item Title: <input type="text" name="title"/>
+<br/>
+
+Category: <select name="category">
+  <option value="Books">Books</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Home">Home</option>
+  <option value="Toys">Toys</option>
+  <option value="Clothes">Clothes</option>
+  <option value="Motoring">Motoring</option>
+  <option value="Sports">Sports</option>
+</select>
+<br/>Item Description <textarea name="description">Enter text here...</textarea>
+<br/><input type="submit" value="Submit"/>
+</form>
+ </div>
+ <script type="text/javascript">
+  function formValid() {
+	   var field1 = document.forms["itemform"]["title"].value;
+	   var field2 = document.forms["itemform"]["description"].value;
+	    if (field1 == "") {
+	        alert("Please enter an advert title");
+	        return false;
+	    }
+	    else if (field2 == "") {
+	        alert("Please enter an item description");
+	        return false;
+	    }
+  } 
+</script>
+</body>
+</html>
