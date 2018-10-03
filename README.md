@@ -62,7 +62,7 @@ The login page displays warnings if an invalid username or password is entered A
 
 Form Validation is used to make sure all required fields of all of the forms are filledin. This prevents incomplete forms being sent to the server and invalid SQL statements being processed.
 	
-# JSPs/HTML files and their associated servlets:
+### JSPs/HTML files and their associated servlets:
 index.jsp -> LoginServlet.java
 register.html -> RegServlet.java
 Home.jsp -> Home.java, Delete.java, PaceBid.java
