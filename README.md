@@ -4,6 +4,8 @@ An application I designed as part of a Web Application Development Module undert
 - Registered users can place advertisements on the system under certain categories
 - Users can search for items or by category and place bids on items
 
+The application was initially run and tested locally using a Tomcat server which was installed and integrated with the Eclipse IDE. Upon completion the application was uploaded to a DCU Tomcat server where it could be accesses remotely (this server has since been reset). An Oracle 11g databse was available to use to store the SQL data.
+
 ### Some more requirements and features which are all present in the app
 #### Client Tier
 - Presentation is performed using standard HTML and limited use of CSS style sheets
