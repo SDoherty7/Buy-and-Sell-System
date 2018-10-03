@@ -1,5 +1,5 @@
 # Buy-and-Sell-System
-An application I designed as part of the Web Application Development Module undertaken in my final year of study in DCU. The requirements of the assignment was to create a web application that included:
+An application I designed as part of a Web Application Development Module undertaken in my final year of study in DCU. The requirements of the assignment was to create a web application that included:
 - Facility to allow users to register  
 - Registered users can place advertisements on the system under certain categories
 - Users can search for items or by category and place bids on items
